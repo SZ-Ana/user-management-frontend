@@ -4,19 +4,19 @@ import App from "./App.jsx";
 import "./index.css";
 
 import { ApiProvider, Provider } from "@reduxjs/toolkit/dist/query/react";
-import { apiSlice } from "./features/api/apiSlice";
+import { apiSlice } from "./api/apiSlice";
 import { ThemeProvider } from "@emotion/react";
 import Theme from "./assets/theme.jsx";
-import { store } from "./app/store.jsx";
+import { AlertProvider } from "./components/alerts/AlertProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
     <ApiProvider api={apiSlice}>
       <ThemeProvider theme={Theme}>
-        <App />
+        <AlertProvider>
+          <App />
+        </AlertProvider>
       </ThemeProvider>
     </ApiProvider>
-    {/* </Provider> */}
   </React.StrictMode>
 );

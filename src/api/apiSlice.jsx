@@ -26,10 +26,13 @@ export const apiSlice = createApi({
     }),
     updateUser: builder.mutation({
       query: (user) => ({
-        url: `/users/${user.id}`,
+        url: `/users/${user._id}`,
         method: "PATCH",
         body: user,
       }),
+      onQueryError: (error) => {
+        console.log(error);
+      },
     }),
     deleteUser: builder.mutation({
       query: ({ id }) => ({
@@ -37,6 +40,9 @@ export const apiSlice = createApi({
         method: "DELETE",
         body: id,
       }),
+      onQueryError: (error) => {
+        console.log(error);
+      },
     }),
   }),
 });

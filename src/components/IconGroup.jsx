@@ -1,14 +1,19 @@
 import { Edit, PersonAdd, DeleteOutline } from "@mui/icons-material";
 import { IconButton, Stack, Box } from "@mui/material";
 import { useState } from "react";
-import UserModal from "./UserModal";
+import UserModal from "./modals/UserModal";
 
 const IconGroup = ({ getData }) => {
   const [open, setOpen] = useState(false);
-  const [modalHeading, setModalHeading] = useState("");
+  const [modalHeading, setModalHeading] = useState({
+    heading: "",
+    data: {},
+  });
 
   const handleOpen = (modalHeading) => {
-    setModalHeading(modalHeading);
+    setModalHeading({
+      heading: modalHeading,
+    });
     setOpen(true);
   };
   const handleClose = () => {
@@ -30,25 +35,15 @@ const IconGroup = ({ getData }) => {
           >
             <PersonAdd />
           </IconButton>
-          <IconButton
-            aria-label="EditUser"
-            onClick={() => handleOpen("Edit user")}
-          >
-            <Edit />
-          </IconButton>
-          <IconButton
-            aria-label="DeleteUser"
-            onClick={() => handleOpen("Delete user")}
-          >
-            <DeleteOutline />
-          </IconButton>
         </Stack>
       </Box>
-      <UserModal
-        modalHeading={modalHeading}
-        open={open}
-        handleClose={handleClose}
-      />
+      {open && (
+        <UserModal
+          modalHeading={modalHeading}
+          open={open}
+          handleClose={handleClose}
+        />
+      )}
     </>
   );
 };

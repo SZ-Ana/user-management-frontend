@@ -1,5 +1,5 @@
 import "./App.css";
-import UserList from "./features/users/UserList";
+import UserList from "./pages/UserList";
 import { CssBaseline, Container, Typography } from "@mui/material";
 
 function App() {
@@ -7,12 +7,6 @@ function App() {
     <>
       <CssBaseline />
       <Container>
-        <Typography
-          variant="h1"
-          sx={{ my: 4, textAlign: "center", color: "primary.main" }}
-        >
-          Manage Users
-        </Typography>
         <UserList />
       </Container>
     </>

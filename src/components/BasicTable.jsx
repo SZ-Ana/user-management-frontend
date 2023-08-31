@@ -8,9 +8,8 @@ import {
   Paper,
 } from "@mui/material";
 const BasicTable = ({ users, isSuccess }) => {
-  if(isSuccess) {
+  if (isSuccess) {
     return (
-      
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="user table">
           <TableHead>
@@ -39,8 +38,8 @@ const BasicTable = ({ users, isSuccess }) => {
       </TableContainer>
     );
   }
- 
-  return null; 
+
+  return null;
 };
 
 export default BasicTable;
