@@ -36,12 +36,12 @@ const UserList = () => {
           alignItems="flex-start"
           spacing={1}
         >
-          <Typography
+          {/* <Typography
             variant="h1"
             sx={{ my: 4, textAlign: "center", color: "primary.main" }}
           >
             Manage Users
-          </Typography>
+          </Typography> */}
           <IconGroup getData={getData} />
           <Box width="100%">
             {users.data.length === 0 ? (

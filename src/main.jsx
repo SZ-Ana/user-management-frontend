@@ -13,9 +13,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ApiProvider api={apiSlice}>
       <ThemeProvider theme={Theme}>
-        <AlertProvider>
-          <App />
-        </AlertProvider>
+        {/* <AlertProvider> */}
+        <App />
+        {/* </AlertProvider> */}
       </ThemeProvider>
     </ApiProvider>
   </React.StrictMode>

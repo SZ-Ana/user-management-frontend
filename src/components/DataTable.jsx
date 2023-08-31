@@ -81,8 +81,8 @@ const DataTable = ({ rows, isSuccess, getData }) => {
   const columns = [
     { field: "_id", headerName: "ID", width: 250 },
     // { field: "username", headerName: "Username", width: 250 },
-    { field: "firstname", headerName: "First name", width: 200 },
-    { field: "lastname", headerName: "Last name", width: 200 },
+    { field: "firstname", headerName: "First name", width: 150 },
+    { field: "lastname", headerName: "Last name", width: 150 },
     { field: "email", headerName: "Email", width: 250 },
     {
       field: "contactNumber",

@@ -1,16 +1,8 @@
 import "./App.css";
-import UserList from "./pages/UserList";
-import { CssBaseline, Container, Typography } from "@mui/material";
+import RootLayout from "./layouts/RootLayout";
 
 function App() {
-  return (
-    <>
-      <CssBaseline />
-      <Container>
-        <UserList />
-      </Container>
-    </>
-  );
+  return <RootLayout />;
 }
 
 export default App;
