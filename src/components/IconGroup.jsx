@@ -1,5 +1,5 @@
 import { Edit, PersonAdd, DeleteOutline } from "@mui/icons-material";
-import { IconButton, Stack, Box } from "@mui/material";
+import { IconButton, Stack, Box, Typography, Button } from "@mui/material";
 import { useState } from "react";
 import UserModal from "./modals/UserModal";
 
@@ -26,15 +26,22 @@ const IconGroup = ({ getData }) => {
         <Stack
           direction="row"
           justifyContent="flex-end"
-          alignItems="baseline"
+          alignItems="center"
           spacing={0.5}
         >
-          <IconButton
+          <Button
             aria-label="AddUser"
             onClick={() => handleOpen("Add new user")}
+            sx={{
+              color: "gray",
+              "&:hover": {
+                color: "#1976d2", // Change this color to the desired hover color
+              },
+            }}
           >
-            <PersonAdd />
-          </IconButton>
+            <PersonAdd sx={{ mr: "10px" }} />
+            ADD USER
+          </Button>
         </Stack>
       </Box>
       {open && (

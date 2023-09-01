@@ -98,12 +98,24 @@ const DataTable = ({ rows, isSuccess, getData }) => {
           <IconButton
             onClick={() => handleEditClick(params.row)}
             aria-label="edit"
+            sx={{
+              color: "gray",
+              "&:hover": {
+                color: "green", // Change this color to the desired hover color
+              },
+            }}
           >
             <Edit />
           </IconButton>
           <IconButton
             onClick={() => handleDeleteClick(params.row)}
             aria-label="delete"
+            sx={{
+              color: "gray",
+              "&:hover": {
+                color: "red", // Change this color to the desired hover color
+              },
+            }}
           >
             <DeleteOutline />
           </IconButton>

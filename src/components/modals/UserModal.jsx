@@ -5,6 +5,8 @@ import { DevTool } from "@hookform/devtools";
 import { useAddUserMutation, useUpdateUserMutation } from "../../api/apiSlice";
 // styling
 import style from "../../assets/style";
+// swal
+import Swal from "sweetalert2";
 
 const UserModal = ({ modalHeading, open, handleClose }) => {
   const { register, control, handleSubmit, formState } = useForm({
@@ -34,8 +36,10 @@ const UserModal = ({ modalHeading, open, handleClose }) => {
       if (!result.error) {
         if (result.data.message == "create") {
           console.log("Data saved");
+          Swal.fire("Saved!", "User has been added.", "success");
           handleClose();
         } else if (result.data.message === "update") {
+          Swal.fire("Update!", "User has been updated.", "success");
           console.log("Data Updated");
           handleClose();
         }
@@ -55,13 +59,7 @@ const UserModal = ({ modalHeading, open, handleClose }) => {
             <Typography id="modal-modal-title" variant="h6" component="h2">
               {modalHeading.heading}
             </Typography>
-            <TextField
-              label="Username"
-              variant="outlined"
-              {...register("username", { required: "Username is required." })}
-              error={!!errors.username}
-              helperText={errors.username?.message}
-            />
+
             <TextField
               label="First Name"
               variant="outlined"
@@ -107,6 +105,13 @@ const UserModal = ({ modalHeading, open, handleClose }) => {
               helperText={errors.contactNumber?.message}
             />
             <TextField
+              label="Username"
+              variant="outlined"
+              {...register("username", { required: "Username is required." })}
+              error={!!errors.username}
+              helperText={errors.username?.message}
+            />
+            <TextField
               label="Password"
               variant="outlined"
               type="password"
@@ -115,7 +120,7 @@ const UserModal = ({ modalHeading, open, handleClose }) => {
               helperText={errors.password?.message}
             />
             <Button type="submit" color="primary" variant="contained">
-              Submit
+              {!modalHeading.data ? "Save" : "Update"}
             </Button>
           </Box>
         </form>

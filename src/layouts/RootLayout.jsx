@@ -1,6 +1,7 @@
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar from "@mui/material/AppBar";
@@ -18,7 +19,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import UserList from "../pages/UserList";
 import { Outlet, NavLink } from "react-router-dom";
 import Footer from "./Footer";
 
@@ -125,7 +125,7 @@ export default function RootLayout() {
         <Divider />
         <List>
           <ListItem disablePadding>
-            <ListItemButton component={NavLink} to="/" activeClassName="active">
+            <ListItemButton component={NavLink} to="/">
               <ListItemIcon>
                 <Home />
               </ListItemIcon>
@@ -133,11 +133,7 @@ export default function RootLayout() {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton
-              component={NavLink}
-              to="/userlist"
-              activeClassName="active"
-            >
+            <ListItemButton component={NavLink} to="/userlist">
               <ListItemIcon>
                 <Group />
               </ListItemIcon>
@@ -148,7 +144,9 @@ export default function RootLayout() {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
+        {/* <Container> */}
         <Outlet />
+        {/* </Container> */}
       </Main>
     </Box>
   );
