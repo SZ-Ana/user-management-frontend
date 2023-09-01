@@ -18,9 +18,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
 import UserList from "../pages/UserList";
-import { Outlet, NavLink } from "react-router-dom";
-import Footer from "./Footer";
 
 const drawerWidth = 240;
 
@@ -69,7 +69,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function RootLayout() {
+export default function PersistentDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -96,7 +96,7 @@ export default function RootLayout() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            User Management
+            User List
           </Typography>
         </Toolbar>
       </AppBar>
@@ -124,31 +124,21 @@ export default function RootLayout() {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem disablePadding>
-            <ListItemButton component={NavLink} to="/" activeClassName="active">
-              <ListItemIcon>
-                <Home />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton
-              component={NavLink}
-              to="/userlist"
-              activeClassName="active"
-            >
-              <ListItemIcon>
-                <Group />
-              </ListItemIcon>
-              <ListItemText primary="User List" />
-            </ListItemButton>
-          </ListItem>
+          {["Home", "User List"].map((text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <Home /> : <Group />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        <Outlet />
+        <UserList />
       </Main>
     </Box>
   );

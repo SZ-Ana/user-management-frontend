@@ -20,6 +20,10 @@ export default function NavBar() {
     setAuth(event.target.checked);
   };
 
+  const handleShowSideBar = (event) => {
+    console.log("sidebar");
+  };
+
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -30,7 +34,7 @@ export default function NavBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <FormGroup>
+      {/* <FormGroup>
         <FormControlLabel
           control={
             <Switch
@@ -41,7 +45,7 @@ export default function NavBar() {
           }
           label={auth ? "Logout" : "Login"}
         />
-      </FormGroup>
+      </FormGroup> */}
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -50,11 +54,12 @@ export default function NavBar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={handleShowSideBar}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Photos
+            Users List
           </Typography>
           {auth && (
             <div>

@@ -3,6 +3,7 @@ import { useGetUsersQuery } from "../api/apiSlice";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import DataTable from "../components/DataTable";
 import IconGroup from "../components/IconGroup";
+import Loading from "../components/loading/Loading";
 
 const UserList = () => {
   const {
@@ -19,7 +20,7 @@ const UserList = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>; // Show loading indicator
+    return <Loading />; // Show loading indicator
   }
 
   if (isError) {
